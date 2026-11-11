@@ -1,0 +1,24 @@
+import Link from 'next/link'
+import { redirect } from 'next/navigation'
+import { AuthForm } from '@/components/AuthForm'
+import { getCurrentRA } from '@/lib/app-auth'
+
+export default async function LoginPage() {
+  if (await getCurrentRA()) redirect('/dashboard')
+  return (
+    <main className="auth-shell">
+      <Link href="/" className="brand absolute left-6 top-6 md:left-10 md:top-9">
+        <span className="brand-mark">S</span>
+        <span>Spotlight</span>
+      </Link>
+      <section className="auth-card">
+        <p className="eyebrow mx-auto w-fit">RA access</p>
+        <h1 className="mt-5 text-center text-4xl font-bold tracking-[-.045em]">Welcome back.</h1>
+        <p className="mt-3 text-center text-sm leading-6 text-[var(--muted)]">
+          Sign in to create events and manage your residence’s guest lists.
+        </p>
+        <AuthForm mode="login" />
+      </section>
+    </main>
+  )
+}
