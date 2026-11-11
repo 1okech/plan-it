@@ -58,8 +58,6 @@ A higher score means a better place in line. Scores are recalculated whenever an
 - Tailwind CSS
 - TypeScript
 
-Originally generated with Figma Make.
-
 ## Project structure
 
 ```
